@@ -52,19 +52,41 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="btn_print" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_edit" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_guardar" min="-2" pref="72" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_delete" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jSeparator1" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                                      <Component id="label_rentcar" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="btn_salida" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="label_listadepersona" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                                  <Component id="lbl_buscar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txt_buscar" min="-2" pref="111" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btn_print" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btn_edit" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btn_guardar" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btn_delete" min="-2" pref="75" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="label_telefono" max="32767" attributes="0"/>
@@ -152,28 +174,11 @@
                                   <Component id="txt_direccion4" min="-2" pref="93" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jSeparator1" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
-                                      <Component id="label_rentcar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="btn_salida" min="-2" pref="44" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="label_listadepersona" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="521" max="32767" attributes="0"/>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -183,88 +188,107 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="label_rentcar" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btn_salida" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_salida" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="label_listadepersona" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="label_listadepersona" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbl_buscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_buscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_codpersona" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="label_codpersona" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="label_cedula" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_cedula" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="label_nombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="txt_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="label_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_codpersona" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_codpersona" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_cedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_cedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="label_nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="txt_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_tel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_telefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_correo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_correo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="txt_correo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_correo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_sexo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="combobox_sexo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_fechanac" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_fecha_Nac" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_pasaporte" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_pasaporte" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_direccion" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="label_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_cod_sector" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="label_direccion1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_Cod_municipio" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txt_direccion3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="label_Cod_provincia" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_direccion4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_direccion4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="label_direccion2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btn_guardar" alignment="1" max="32767" attributes="0"/>
+                              <Component id="btn_delete" alignment="1" max="32767" attributes="0"/>
+                              <Component id="btn_edit" alignment="1" max="32767" attributes="0"/>
+                              <Component id="btn_print" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_tel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="label_telefono" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_correo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="label_correo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="txt_correo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="label_correo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="label_sexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="combobox_sexo" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_fechanac" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="label_fecha_Nac" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_pasaporte" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="label_pasaporte" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_direccion" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="label_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_cod_sector" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="label_direccion1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_Cod_municipio" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="txt_direccion3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="label_Cod_provincia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="label_direccion4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_direccion4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="label_direccion2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_print" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_edit" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_guardar" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_delete" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -413,14 +437,14 @@
         <Component class="javax.swing.JButton" name="btn_salida">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\rentacar\proy-final_rentcar\src\imagenes\icon_salida.png"/>
+              <Image iconType="3" name="/imagenes/icon_salida.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_print">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\rentacar\proy-final_rentcar\src\imagenes\icons8-imprimir-50.png"/>
+              <Image iconType="3" name="/imagenes/icons8-imprimir-50.png"/>
             </Property>
           </Properties>
         </Component>
@@ -492,16 +516,19 @@
         <Component class="javax.swing.JButton" name="btn_edit">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\rentacar\proy-final_rentcar\src\imagenes\icons8-editar-50.png"/>
+              <Image iconType="3" name="/imagenes/icons8-editar-50.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_delete">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\rentacar\proy-final_rentcar\src\imagenes\icons8-eliminar-50.png"/>
+              <Image iconType="3" name="/imagenes/icons8-eliminar-50.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deleteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_guardar">
           <Properties>
@@ -544,6 +571,32 @@
               <Image iconType="3" name="/imagenes/icons8-embotellamiento-50 (1).png"/>
             </Property>
           </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="table_persona">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="0" rowCount="0"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="lbl_buscar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="buscar:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_buscar">
         </Component>
       </SubComponents>
     </Container>
