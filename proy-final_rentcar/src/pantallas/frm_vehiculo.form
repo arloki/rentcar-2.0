@@ -312,6 +312,9 @@
               <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\rentacar\proy-final_rentcar\src\imagenes\icons8-imprimir-50.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_print1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_edit">
           <Properties>
@@ -352,7 +355,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registro de puestos"/>
+            <Property name="text" type="java.lang.String" value="Registro de vehiculo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">

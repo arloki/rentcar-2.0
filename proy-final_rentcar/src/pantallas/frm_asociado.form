@@ -271,6 +271,9 @@
               <Image iconType="2" name="C:\Users\user\Documents\NetBeansProjects\rentacar\proy-final_rentcar\src\imagenes\icons8-imprimir-50.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_printActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_edit">
           <Properties>

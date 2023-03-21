@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="0b95a87f-32e7-4ccf-b6e7-1173046a35e8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
@@ -57,12 +60,8 @@
 	</field>
 	<background>
 		<band height="575" splitType="Stretch">
-			<image vAlign="Bottom">
-				<reportElement mode="Opaque" x="0" y="234" width="85" height="241" backcolor="#000000" uuid="5dd34352-686f-4db7-8beb-913d1ac2731d"/>
-				<imageExpression><![CDATA["silhouette2.jpg"]]></imageExpression>
-			</image>
 			<rectangle>
-				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="07ac3c00-0d4f-4ae4-8d2d-27ec508bb3d7"/>
+				<reportElement x="-20" y="-266" width="20" height="741" backcolor="#006666" uuid="07ac3c00-0d4f-4ae4-8d2d-27ec508bb3d7"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
@@ -93,19 +92,23 @@
 	<title>
 		<band height="104" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="37237f72-4910-486d-a67a-c50685e0095e"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="54" isBold="false" pdfFontName="Helvetica"/>
-				</textElement>
-				<text><![CDATA[SILHOUETTE TITLE]]></text>
-			</staticText>
-			<staticText>
 				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="dd04f4cc-860d-471a-bf36-732900571979"/>
 				<textElement textAlignment="Right">
 					<font size="26"/>
 				</textElement>
-				<text><![CDATA[Silhouette SubTitle]]></text>
+				<text><![CDATA[Reporte persona]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Title" x="208" y="0" width="397" height="67" uuid="52fa29de-a692-42aa-85db-8e90ec4f2c28"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Rent a Car U&S]]></text>
+			</staticText>
+			<image>
+				<reportElement x="29" y="-17" width="179" height="121" uuid="2b93fea6-9bfe-4b14-81ad-7049bd8b1d02"/>
+				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -271,13 +274,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="96" y="0" width="267" height="20" uuid="b130713a-2fc1-419e-8eee-09b2693f3083"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Silhouette Title Report]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 	<summary>

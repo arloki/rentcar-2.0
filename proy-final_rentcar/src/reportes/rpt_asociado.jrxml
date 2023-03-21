@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="17fe38b2-27dc-467e-8656-a76b6bbc45c7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select *from asociado;]]>
+	</queryString>
+	<field name="cod_asoc" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rnc_asoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="moneda_asoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_asoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_per" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-270" width="20" height="745" backcolor="#006666" uuid="f02201f6-c81f-4ce3-bed2-2f0a6ad1bc38"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="9c4d242d-dce0-4db8-aced-20c7787243ad"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="19b27699-d0e9-4408-8954-82c458454ce8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="9a93c0c8-5703-4d9d-997d-ba62a43584c4"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="21c56ad1-98cb-4dee-a7e7-44a3a9a3d387"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="191" y="0" width="423" height="67" uuid="f9fc8daf-86cf-4923-a000-8a1b7759f930"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Rent a Car U&S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="32f4a454-1197-4843-9a27-8de58e4fbb05"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reporte asociado]]></text>
+			</staticText>
+			<image>
+				<reportElement x="73" y="-21" width="179" height="121" uuid="df4d294e-22c1-4a31-bf26-2253ad4300a9"/>
+				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="5" width="802" height="20" backcolor="#006666" uuid="6cf1d05e-70ba-4393-a0c7-3043f1c25772"/>
+				<staticText>
+					<reportElement style="Column header" x="14" y="0" width="141" height="15" uuid="791bf194-e57a-498d-8b80-cec263d52269"/>
+					<text><![CDATA[cod_asoc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="141" y="0" width="141" height="15" uuid="bd759a1c-9ccf-4805-b6e4-9693ab45948e"/>
+					<text><![CDATA[rnc_asoc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="282" y="0" width="141" height="15" uuid="92dcd2a3-5851-4fff-a857-340e82036ae6"/>
+					<text><![CDATA[moneda_asoc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="423" y="0" width="141" height="15" uuid="ed170d4d-bae9-407d-a895-fa35a6ffb8c0"/>
+					<text><![CDATA[estado_asoc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="564" y="0" width="141" height="15" uuid="a92a1b73-a929-4657-b2e8-5e8076a814aa"/>
+					<text><![CDATA[cod_per]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="d263fd19-60f0-440d-b881-72c36332bb64"/>
+				<textField>
+					<reportElement style="Detail" x="32" y="0" width="141" height="15" uuid="65a49819-e64c-445c-862a-08751257a457"/>
+					<textFieldExpression><![CDATA[$F{rnc_asoc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="326" y="0" width="141" height="15" uuid="45f0d1cf-cfd1-4ccd-b8b5-836441a50e04"/>
+					<textFieldExpression><![CDATA[$F{estado_asoc}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="d6c3ad4f-9a6a-4030-a6cf-a64e88b2cc88"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="14" y="6" width="141" height="15" uuid="d0ecb1d8-f4a9-4664-9291-e0b5c6f6c0bc"/>
+				<textFieldExpression><![CDATA[$F{cod_asoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="270" y="0" width="141" height="15" uuid="88a1dd61-5984-47bc-85db-43cb2779f495"/>
+				<textFieldExpression><![CDATA[$F{moneda_asoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="564" y="0" width="141" height="15" uuid="0b971c1b-962e-48b3-aa2c-c574b6691167"/>
+				<textFieldExpression><![CDATA[$F{cod_per}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="e9023606-f88c-4210-beb2-e25fa8187a30"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

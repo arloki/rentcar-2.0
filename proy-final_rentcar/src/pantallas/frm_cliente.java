@@ -4,7 +4,17 @@
  * and open the template in the editor.
  */
 package pantallas;
-
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author user
@@ -117,6 +127,11 @@ public class frm_cliente extends javax.swing.JFrame {
         });
 
         btn_print1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icons8-imprimir-50.png")); // NOI18N
+        btn_print1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_print1ActionPerformed(evt);
+            }
+        });
 
         btn_edit.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icons8-editar-50.png")); // NOI18N
 
@@ -196,9 +211,9 @@ public class frm_cliente extends javax.swing.JFrame {
                                     .addComponent(txt_Categoria_lic, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(label_listadeclientes)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(14, 14, 14)
                         .addComponent(btn_print1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,7 +238,7 @@ public class frm_cliente extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Cod_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_Cod_cliente))
@@ -262,10 +277,10 @@ public class frm_cliente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 800, 460));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 800, 480));
 
         Label_imgfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mercedes_benz.jpg"))); // NOI18N
-        getContentPane().add(Label_imgfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 520));
+        getContentPane().add(Label_imgfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -297,6 +312,26 @@ public class frm_cliente extends javax.swing.JFrame {
     private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_salidaActionPerformed
+
+    private void btn_print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_print1ActionPerformed
+
+        // codigo para imprimir reporte 
+               Connection con= MyConnection.getConnection();
+        try{
+            JasperReport jr = (JasperReport) JRLoader.loadObject(frm_cliente.class.getResource("/reportes/rpt_cliente.jasper"));
+            Map parametros = new HashMap<>();
+            parametros.put("cliente", "Reporte cliente");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+        }
+        catch (JRException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex);
+        }
+    
+        
+    }//GEN-LAST:event_btn_print1ActionPerformed
 
     /**
      * @param args the command line arguments

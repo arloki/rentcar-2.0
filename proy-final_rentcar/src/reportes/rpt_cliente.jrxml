@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="b1306380-4768-44b4-bef0-fa292d999a08">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select  *from cliente;]]>
+	</queryString>
+	<field name="cod_cli" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_lic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_emision_lic" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_expiracion_lic" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="categoria_lic" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_cli" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_per" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="f4e735fc-d0a1-44f1-8199-5289068e51c5"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="10434d5d-c4ea-474c-b392-741062d500ff"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="bc3f7910-3f42-4bbc-87af-c22f33063171"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="f2e10685-bb70-4304-af98-ca4c7f0a7610"/>
+				</line>
+			</frame>
+			<rectangle>
+				<reportElement x="-20" y="-313" width="20" height="788" backcolor="#006666" uuid="daadde01-6490-4d3c-bc71-67a30bcb1840"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="4ae9a9a6-e26a-429f-9726-b3bcb876047a"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reporte cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="215" y="11" width="397" height="67" uuid="f3a81910-1f38-4be9-9a9b-f39ec2a684a4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Rent a Car U&S]]></text>
+			</staticText>
+			<image>
+				<reportElement x="65" y="-17" width="179" height="121" uuid="80310534-e1a7-4912-afbb-1eaf480b29f4"/>
+				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="5" width="802" height="20" backcolor="#006666" uuid="87b5ee8c-1b84-4c21-b974-51cd2b0d3cb2"/>
+				<staticText>
+					<reportElement style="Column header" x="18" y="0" width="100" height="15" uuid="6530dd75-ff56-446c-bf2b-3fdec342f3ec"/>
+					<text><![CDATA[cod_cli]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="100" y="0" width="100" height="15" uuid="4c40ea64-f236-40b9-a43c-68100fb76278"/>
+					<text><![CDATA[num_lic]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="185" y="0" width="100" height="15" uuid="d27b93f6-f982-4973-ace6-78fb51496ed4"/>
+					<text><![CDATA[fecha_emision_lic]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="300" y="0" width="100" height="15" uuid="5415dc1d-2a50-4df4-bc27-7f265270ed24"/>
+					<text><![CDATA[fecha_expiracion_lic]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="415" y="0" width="100" height="15" uuid="c6d590f8-e162-4c22-8a65-858576761dd7"/>
+					<text><![CDATA[categoria_lic]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="528" y="0" width="100" height="15" uuid="31a6b439-c24b-4259-846f-c90a5021c9eb"/>
+					<text><![CDATA[estado_cli]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="628" y="0" width="100" height="15" uuid="16888fe8-f97f-44e4-a07e-2ab21ca9d1dd"/>
+					<text><![CDATA[cod_per]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="ccd701f5-86f3-443b-a05d-7401cbd02e99"/>
+				<textField>
+					<reportElement style="Detail" x="3" y="0" width="100" height="15" uuid="99a9c7a1-86fd-417d-ae96-69ead953752d"/>
+					<textFieldExpression><![CDATA[$F{num_lic}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="203" y="0" width="100" height="15" uuid="1fffe0ea-6aa3-4e88-8ce8-1c6ce65ba151"/>
+					<textFieldExpression><![CDATA[$F{fecha_expiracion_lic}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="303" y="0" width="100" height="15" uuid="fd1556ba-b93b-4aa6-aabe-430fcd9931cc"/>
+					<textFieldExpression><![CDATA[$F{categoria_lic}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="6867e6b8-a83c-400d-bed3-0f77daa1b960"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="18" y="2" width="100" height="15" uuid="982b7251-57da-4f67-9740-07acaa58ee00"/>
+				<textFieldExpression><![CDATA[$F{cod_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="185" y="0" width="100" height="15" uuid="e3742423-9708-4127-90c3-ae76558452cb"/>
+				<textFieldExpression><![CDATA[$F{fecha_emision_lic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="528" y="0" width="100" height="15" uuid="a0052cb8-58dc-41be-b08d-f9a00d8d79ac"/>
+				<textFieldExpression><![CDATA[$F{estado_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="628" y="0" width="100" height="15" uuid="9da7b8ed-e0aa-40cd-b884-49d644fd1744"/>
+				<textFieldExpression><![CDATA[$F{cod_per}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="9050fb3f-d369-4513-aa75-e5293f2fb9cd"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

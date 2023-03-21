@@ -4,7 +4,17 @@
  * and open the template in the editor.
  */
 package pantallas;
-
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author user
@@ -119,6 +129,11 @@ public class frm_pago_renta extends javax.swing.JFrame {
         });
 
         btn_print2.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icons8-imprimir-50.png")); // NOI18N
+        btn_print2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_print2ActionPerformed(evt);
+            }
+        });
 
         btn_edit1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icons8-editar-50.png")); // NOI18N
 
@@ -269,6 +284,23 @@ public class frm_pago_renta extends javax.swing.JFrame {
     private void txt_cod_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cod_clienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cod_clienteActionPerformed
+
+    private void btn_print2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_print2ActionPerformed
+              // codigo para imprimir reporte 
+               Connection con= MyConnection.getConnection();
+        try{
+            JasperReport jr = (JasperReport) JRLoader.loadObject(frm_cliente.class.getResource("/reportes/rpt_pago_renta.jasper"));
+            Map parametros = new HashMap<>();
+            parametros.put("pago renta ", "Reporte pago renta");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con);
+            JasperViewer jv = new JasperViewer(jp, false);
+            jv.setVisible(true);
+        }
+        catch (JRException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex);
+        }
+    }//GEN-LAST:event_btn_print2ActionPerformed
 
     /**
      * @param args the command line arguments

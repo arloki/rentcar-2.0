@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="8f17ea8c-af45-42e7-b497-be6d70d20114">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select *from vehiculo;]]>
+	</queryString>
+	<field name="Cod_vh" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="matricula_vh" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ano_de_salida_vh" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="distintivo_vh" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="categoria_vh" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_vh" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_marca" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-266" width="20" height="741" backcolor="#006666" uuid="87c6e2b5-b75c-408f-ab47-992f9c465829"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="a612f09d-f395-4380-85f5-c14c93845abe"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="eacc0d9e-c2ee-4c54-9d6a-6f4c3d39acf8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="c85690ba-8ad2-4f73-b2fe-5939e62d69b4"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="33d5e706-a11c-4258-8721-943c39e429db"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="e204e69a-bbc5-4411-8062-c950b01cae8e"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reporte vehiculo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="210" y="10" width="397" height="67" uuid="d8f9ce00-1f34-407c-93d8-0a3b0a9dc99a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Rent a Car U&S]]></text>
+			</staticText>
+			<image>
+				<reportElement x="42" y="-17" width="190" height="121" uuid="0323b810-8cb0-42a5-95f8-62237a51ee8c"/>
+				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#006666" uuid="2aa92c86-3027-44ea-b463-bb57b3f12c4c"/>
+				<staticText>
+					<reportElement style="Column header" x="100" y="0" width="100" height="15" uuid="1be53837-f6fa-4428-bf83-578e69a70229"/>
+					<text><![CDATA[matricula_vh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="200" y="0" width="100" height="15" uuid="853cc3ab-2926-4861-937c-e2aa7b813e0c"/>
+					<text><![CDATA[ano_de_salida_vh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="300" y="0" width="100" height="15" uuid="4d078212-ac44-4ac9-9ed8-0b2c495b8a34"/>
+					<text><![CDATA[distintivo_vh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="400" y="0" width="100" height="15" uuid="ba7920c1-1f51-4e4d-bed2-0098e893675b"/>
+					<text><![CDATA[categoria_vh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="500" y="0" width="100" height="15" uuid="20f980ec-8996-4f68-b50b-8700c202a173"/>
+					<text><![CDATA[estado_vh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="600" y="0" width="100" height="15" uuid="8bd2c727-aaa1-4243-84ba-01c86ba0cdeb"/>
+					<text><![CDATA[cod_marca]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="100" height="15" uuid="43475d84-ed4c-48e3-9565-60c1cda3026a"/>
+					<text><![CDATA[Cod_vh]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="0ad57ee2-20cb-4e26-a6db-7a98dca17e46"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="100" height="15" uuid="5495ff8e-fedc-49ba-8cb8-030db92166a7"/>
+					<textFieldExpression><![CDATA[$F{Cod_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="100" y="0" width="100" height="15" uuid="d8eee204-5430-4200-9dd9-aab5358080d7"/>
+					<textFieldExpression><![CDATA[$F{matricula_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="200" y="0" width="100" height="15" uuid="4eda69f8-c5e2-41a7-a604-fd24d8623374"/>
+					<textFieldExpression><![CDATA[$F{ano_de_salida_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="300" y="0" width="100" height="15" uuid="5c75140a-8322-4085-a502-060e1466deeb"/>
+					<textFieldExpression><![CDATA[$F{distintivo_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="400" y="0" width="100" height="15" uuid="799f7da3-9a58-4711-b3f8-0a21ff857f40"/>
+					<textFieldExpression><![CDATA[$F{categoria_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="500" y="0" width="100" height="15" uuid="33e6e1d4-5fa9-4e02-8b28-af04a595b7fd"/>
+					<textFieldExpression><![CDATA[$F{estado_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="600" y="0" width="100" height="15" uuid="c6843e1c-2dab-4b6e-9394-f554e4cb35f8"/>
+					<textFieldExpression><![CDATA[$F{cod_marca}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="4b379d94-e217-468a-9fcb-273c6e81d389"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="7fde5d0b-4863-4659-9ec5-8238a21c25a0"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="0c84d9cb-2fe5-46d9-b351-6b7e5cf563b7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="ce18e66f-6a44-4909-a263-c9ae5753d482">
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select *from incidente;]]>
+	</queryString>
+	<field name="cod_inc" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_inc" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion_inc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo_inc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_vh" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cotizacion_daños" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costo_daños" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dias_excedidos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costo_exc_dias" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costo_deducible" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_rent" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_cli" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<image vAlign="Bottom">
+				<reportElement mode="Opaque" x="0" y="234" width="85" height="241" backcolor="#000000" uuid="add8e1a8-429c-4c19-8e80-ae792940bf7a"/>
+				<imageExpression><![CDATA["silhouette2.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="a4ee92e1-5890-4a13-b43c-c04ac9bfbee3"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="12e2f738-3ea8-42c7-bdf9-fe5f1ff27b1a"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="796f149e-666a-4196-bb4a-c29854d4b17c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="08416806-5f0f-4a41-8e10-ec33fd889a10"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="7da3f4ff-1368-435a-95c7-5ab58c807a66"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="71064b71-696e-4c25-9ef0-d63fa610e223"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[SILHOUETTE TITLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="6bf4f4fa-7796-46ce-a802-e26c7f4b849d"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Silhouette SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="88ffe06c-7148-4a14-9981-004bbda446ff"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="58" height="15" uuid="3e1f818e-27c7-4b7a-97b3-35c991057705"/>
+					<text><![CDATA[cod_inc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="58" y="0" width="58" height="15" uuid="484946fc-5b5f-41e3-ac9a-669758d23c4b"/>
+					<text><![CDATA[fecha_inc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="116" y="0" width="58" height="15" uuid="637c0992-ffc2-4db1-9345-c60c088f1252"/>
+					<text><![CDATA[descripcion_inc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="174" y="0" width="58" height="15" uuid="3f186d16-c749-4f39-a1e5-073f7125e72f"/>
+					<text><![CDATA[tipo_inc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="232" y="0" width="58" height="15" uuid="6d63260c-18d0-4f27-be6a-4352e8b0f33f"/>
+					<text><![CDATA[estado_vh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="290" y="0" width="58" height="15" uuid="b5eced00-9500-4b72-8f9b-8ffd9a18fb17"/>
+					<text><![CDATA[cotizacion_daños]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="348" y="0" width="58" height="15" uuid="3802fc05-c252-4f66-83dd-ba99405d5a66"/>
+					<text><![CDATA[costo_daños]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="406" y="0" width="58" height="15" uuid="d57fe808-1fa0-42fd-ad09-cdf27e331a1f"/>
+					<text><![CDATA[dias_excedidos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="464" y="0" width="58" height="15" uuid="a0a88928-4d29-4fae-a2b8-a27c8e33aab0"/>
+					<text><![CDATA[costo_exc_dias]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="522" y="0" width="58" height="15" uuid="728f5a40-0d4b-4816-ac0e-e793d49d32ab"/>
+					<text><![CDATA[costo_deducible]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="580" y="0" width="58" height="15" uuid="c63cfc06-3b30-4896-bacc-ab837c8f4655"/>
+					<text><![CDATA[cod_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="638" y="0" width="58" height="15" uuid="598ad856-02ff-4783-a992-14e43673584f"/>
+					<text><![CDATA[cod_cli]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="0a5f0c3b-22d1-4fee-bd32-6a184e386e86"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="58" height="15" uuid="33177db7-5f15-4eac-8a30-4dd215f6cfe3"/>
+					<textFieldExpression><![CDATA[$F{cod_inc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="58" y="0" width="58" height="15" uuid="86412038-e4ff-4ab1-a045-10e0db433c76"/>
+					<textFieldExpression><![CDATA[$F{fecha_inc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="116" y="0" width="58" height="15" uuid="86ce508a-5465-4841-bae4-c17ffaf9bf83"/>
+					<textFieldExpression><![CDATA[$F{descripcion_inc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="174" y="0" width="58" height="15" uuid="c24df142-5f23-4934-b61b-1eda3a3cac61"/>
+					<textFieldExpression><![CDATA[$F{tipo_inc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="232" y="0" width="58" height="15" uuid="eb719aa8-4ef1-4fbc-bd21-41d7da18ed80"/>
+					<textFieldExpression><![CDATA[$F{estado_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="290" y="0" width="58" height="15" uuid="bda2ae83-5d87-4419-ac8f-1af8538f0b3e"/>
+					<textFieldExpression><![CDATA[$F{cotizacion_daños}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="348" y="0" width="58" height="15" uuid="5cabf760-b305-4210-8df0-36f59d8186ee"/>
+					<textFieldExpression><![CDATA[$F{costo_daños}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="406" y="0" width="58" height="15" uuid="e114c801-ebd4-4ade-814a-4acc167b7a78"/>
+					<textFieldExpression><![CDATA[$F{dias_excedidos}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="464" y="0" width="58" height="15" uuid="196a7780-4ca3-4315-8b5d-2906dc93ca67"/>
+					<textFieldExpression><![CDATA[$F{costo_exc_dias}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="522" y="0" width="58" height="15" uuid="0055455d-0775-4657-919e-111efb22e4aa"/>
+					<textFieldExpression><![CDATA[$F{costo_deducible}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="580" y="0" width="58" height="15" uuid="882cd9d7-8e2e-44f2-962b-e9d3eb14cd2a"/>
+					<textFieldExpression><![CDATA[$F{cod_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="638" y="0" width="58" height="15" uuid="de7a20ce-c008-4ba7-b68a-98e9ed1610c2"/>
+					<textFieldExpression><![CDATA[$F{cod_cli}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="f41677e4-7277-44ed-a038-e5cc85b4c2e6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="09238ab0-3de0-4a94-9ae8-9c50be1af3ff"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="d880853b-6052-49ef-bd39-4e4651c8715e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

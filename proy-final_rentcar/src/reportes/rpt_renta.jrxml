@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="2990ea00-4634-447c-a88f-ffef44d72b11">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select *from renta;]]>
+	</queryString>
+	<field name="cod_rent" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dias_solicitados_rent" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_y_hora_entrega_rent" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_devolucion_rent" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio_dia_rent" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="maximo_dias_rent" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="minimo_dias_rent" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad_conductores_rent" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_rent" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cod_vh" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio_total_rent" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="575" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-273" width="20" height="748" backcolor="#006666" uuid="f7e424f7-27bc-49f8-9c93-3d65e7ff1b63"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="05e018f0-ac51-4c85-b122-ce7069a26646"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="08377360-878f-4d32-9c18-dcba3a3af14a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="7abb1c25-7916-4ce1-af21-64a5fa9b374e"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="76c4e730-40c6-4ea4-9b7e-c83a39d734a0"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="ec317d25-15dc-4813-a98c-6d8d37e5acbc"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reporte rentas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="212" y="0" width="397" height="67" uuid="a3afc877-78b5-4c1c-91c3-e2677499cb8a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Rent a Car U&S]]></text>
+			</staticText>
+			<image>
+				<reportElement x="72" y="-17" width="190" height="121" uuid="49eede67-0617-46cb-940c-e8ff7fe9b7a4"/>
+				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#006666" uuid="35988ccb-6d8b-4d28-a3e8-511644e062bd"/>
+				<staticText>
+					<reportElement style="Column header" x="64" y="0" width="64" height="15" uuid="d2b51329-5f99-4a1e-b114-aae72cb11298"/>
+					<text><![CDATA[dias_solicitados_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="128" y="0" width="64" height="15" uuid="032f8122-0726-4648-a161-0377978da387"/>
+					<text><![CDATA[fecha_y_hora_entrega_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="192" y="0" width="64" height="15" uuid="1363a5df-4da9-46ea-8c79-cf1004468d5a"/>
+					<text><![CDATA[fecha_devolucion_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="256" y="0" width="64" height="15" uuid="cc62dbc8-29a0-4e6d-bd4b-5dbd07a3c7c2"/>
+					<text><![CDATA[precio_dia_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="320" y="0" width="64" height="15" uuid="4294d769-fb61-484f-9b9a-d847ff6ad498"/>
+					<text><![CDATA[maximo_dias_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="384" y="0" width="64" height="15" uuid="d0be0542-8c2e-4082-9d76-f1e550770a2c"/>
+					<text><![CDATA[minimo_dias_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="448" y="0" width="64" height="15" uuid="e6c40bde-503e-47e4-80e7-0613e1ac25bc"/>
+					<text><![CDATA[cantidad_conductores_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="512" y="0" width="64" height="15" uuid="8aaa98e8-29f5-4ffc-991b-a0225cf967de"/>
+					<text><![CDATA[estado_rent]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="576" y="0" width="64" height="15" uuid="1f1ee9f6-0a91-4b49-a572-e81220773455"/>
+					<text><![CDATA[Cod_vh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="640" y="0" width="64" height="15" uuid="9f504ec2-fe78-40f1-84ab-b4cd056070f8"/>
+					<text><![CDATA[precio_total_rent]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement style="Column header" x="97" y="5" width="64" height="15" uuid="5daa8640-57d6-409c-8698-cf79888d9b39"/>
+				<text><![CDATA[cod_rent]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="b298f908-2e57-4e4f-b8f6-5738429c4b2e"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="64" height="15" uuid="2d4b5b6e-61ae-4ac0-b81b-148fe164e69c"/>
+					<textFieldExpression><![CDATA[$F{cod_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="64" y="0" width="64" height="15" uuid="4b7f7599-04ff-4cb7-9054-a7ac99c4d682"/>
+					<textFieldExpression><![CDATA[$F{dias_solicitados_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="128" y="0" width="64" height="15" uuid="16fc06ea-1f51-4683-a9d4-2816ea053c58"/>
+					<textFieldExpression><![CDATA[$F{fecha_y_hora_entrega_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="192" y="0" width="64" height="15" uuid="aa94498c-d4d9-46aa-8c9a-a861262c6c45"/>
+					<textFieldExpression><![CDATA[$F{fecha_devolucion_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="256" y="0" width="64" height="15" uuid="59139847-940c-477b-a15d-2cf11b1b0ed7"/>
+					<textFieldExpression><![CDATA[$F{precio_dia_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="320" y="0" width="64" height="15" uuid="3459b5de-4fcf-476c-88d0-38e67caa6566"/>
+					<textFieldExpression><![CDATA[$F{maximo_dias_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="384" y="0" width="64" height="15" uuid="046c6699-af45-4f2b-bd34-7965ba9b9ad7"/>
+					<textFieldExpression><![CDATA[$F{minimo_dias_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="448" y="0" width="64" height="15" uuid="4167b095-0776-4f4b-8fbd-81dbef74d8c5"/>
+					<textFieldExpression><![CDATA[$F{cantidad_conductores_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="512" y="0" width="64" height="15" uuid="16338df8-e1a3-427a-9937-d247daebb769"/>
+					<textFieldExpression><![CDATA[$F{estado_rent}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="576" y="0" width="64" height="15" uuid="c03f041a-7fed-4ec2-9088-9840476a1ab8"/>
+					<textFieldExpression><![CDATA[$F{Cod_vh}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="640" y="0" width="64" height="15" uuid="be0d56f0-8e7f-4a95-a122-6b5f2737041f"/>
+					<textFieldExpression><![CDATA[$F{precio_total_rent}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="3a51f250-d2ee-4b36-99fc-53a8c279d450"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="68a2c81e-4ca0-4bb1-9ebb-a125d86b8050"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
