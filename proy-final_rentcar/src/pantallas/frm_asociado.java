@@ -5,9 +5,16 @@
  */
 package pantallas;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -21,13 +28,167 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author user
  */
 public class frm_asociado extends javax.swing.JFrame {
-
-    /**
-     * Creates new form frm_asociado
-     */
+    
+//declarar la jtable con el nombre de la tabla 
+    DefaultTableModel asociado;
+//    --------------------fin-----------------------
+    
+  
     public frm_asociado() {
         initComponents();
+        
+        //        para que se vea la tabla 
+        this.asociado =( DefaultTableModel) table_asociado.getModel();
+//        ----------------------------fin------------------------------
+
+// llamando a la funcion mostrardatos 
+              mostrardatos("");
+//--------------fin----------------
+    }  
+    
+        //    funcion para filtrar datos por el rnc 
+    public final void filtrardatos(String valor){
+      MyConnection cc = new MyConnection();  
+        Connection cn =  MyConnection.getConnection(); 
+        
+//        llamando a la funcion refescar tabla
+                refrescartabla();
+//        --------------------------------fin-----------------
+       asociado.addColumn("Cod_asociado");
+        asociado.addColumn("rnc_asoc");
+        asociado.addColumn("moneda_asoc");
+        asociado.addColumn("estado_asoc");
+        asociado.addColumn("cod_per");
+        this.table_asociado.setModel(asociado); 
+        String sql;
+        if(valor.equals("")){
+            sql ="select * from asociado"; 
+        } else {
+            sql = "select * from asociado where rnc_asoc like  '%"+valor+"%' "; 
+        }
+        String [ ] datos = new String[ 5];
+        
+        try{
+             Statement st= cn.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+            
+            while(rs.next() ){
+                 datos[ 0 ]=rs.getString(1); 
+                datos[ 1 ]=rs.getString(2); 
+                datos[ 2]=rs.getString(3); 
+                datos[ 3 ]=rs.getString(4); 
+                datos[ 4 ]=rs.getString(5); 
+              
+                
+                asociado.addRow(datos);
+            }
+            table_asociado.setModel(asociado);
+    } catch (SQLException ex) {  
+               Logger.getLogger(frm_asociado.class.getName()).log(Level.SEVERE,null,ex);
+                     JOptionPane.showMessageDialog(null, "error "+ex);
+        
     }
+        }  
+//    --------------------fin----------------------------
+    
+    
+    //    funcion para mostrar datos
+    public final void mostrardatos(String valor){
+      MyConnection cc = new MyConnection();  
+        Connection cn =  MyConnection.getConnection(); 
+        
+//        llamando a la funcion refescar tabla
+                refrescartabla();
+//        --------------------------------fin-----------------
+       asociado.addColumn("Cod_asociado");
+        asociado.addColumn("rnc_asoc");
+        asociado.addColumn("moneda_asoc");
+        asociado.addColumn("estado_asoc");
+        asociado.addColumn("cod_per");
+        this.table_asociado.setModel(asociado); 
+        String sql;
+        if(valor.equals("")){
+            sql ="select * from asociado"; 
+        } else {
+            sql = "select * from asociado where cod_asoc= '"+valor+"' "; 
+        }
+        String [ ] datos = new String[ 5];
+        
+        try{
+             Statement st= cn.createStatement();
+       ResultSet rs= st.executeQuery(sql);
+            
+            while(rs.next() ){
+                 datos[ 0 ]=rs.getString(1); 
+                datos[ 1 ]=rs.getString(2); 
+                datos[ 2]=rs.getString(3); 
+                datos[ 3 ]=rs.getString(4); 
+                datos[ 4 ]=rs.getString(5); 
+              
+                
+                asociado.addRow(datos);
+            }
+            table_asociado.setModel(asociado);
+    } catch (SQLException ex) {  
+               Logger.getLogger(frm_asociado.class.getName()).log(Level.SEVERE,null,ex);
+                     JOptionPane.showMessageDialog(null, "error "+ex);
+        
+    }
+        }  
+//    --------------------fin----------------------------
+    
+//    para refrescar la tabla
+    public void refrescartabla() {  
+        try {  
+            asociado.setColumnCount(0);
+            asociado.setRowCount(0);
+            table_asociado.revalidate();
+        }  catch (Exception ex) {  
+                JOptionPane.showMessageDialog(null, "error "+ex);
+     
+    } 
+    }
+//    -----------------------------fin----------------------
+    
+    
+    
+ public boolean RevisarAsociado(String asociado){
+        //Funcion para Revisar si un registro existe dentro de la BD
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        String query = "SELECT * FROM `asociado` WHERE `cod_asoc` =?";
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+            ps.setString(1, asociado);
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                checkUser = true;
+            }
+        }   catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error" + ex);
+        }
+        return checkUser;
+        }
+//   -----------------------------fin---------------------------------------
+    
+    public void limpiar(){
+        //limpia el formulario despues de llenarlo
+        try{
+            txt_cod_asociado.setText("");
+           txt_rnc_asociado.setText("");
+          txt_moneda_asociado.setText("");
+        txt_cod_persona.setText("");
+        Cbox_estado_asociado.setSelectedIndex(0); 
+ 
+        } catch (Exception ex) {  
+                JOptionPane.showMessageDialog(null, "error "+ex);
+       
+    } 
+//        -----------------------fin------------------------------
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +222,10 @@ public class frm_asociado extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         label_listadeasociados = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table_asociado = new javax.swing.JTable();
+        lbl_buscar = new javax.swing.JLabel();
+        txt_buscar = new javax.swing.JTextField();
         label_imgfondo = new javax.swing.JLabel();
 
         label_rentcar.setFont(new java.awt.Font("Californian FB", 0, 30)); // NOI18N
@@ -117,25 +282,35 @@ public class frm_asociado extends javax.swing.JFrame {
 
         Cbox_estado_asociado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "eligir", "activo", "inactivo" }));
 
-        btn_print.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icons8-imprimir-50.png")); // NOI18N
+        btn_print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-imprimir-50.png"))); // NOI18N
         btn_print.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_printActionPerformed(evt);
             }
         });
 
-        btn_edit.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icons8-editar-50.png")); // NOI18N
+        btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-editar-50.png"))); // NOI18N
         btn_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_editActionPerformed(evt);
             }
         });
 
-        btn_delete.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icons8-eliminar-50.png")); // NOI18N
+        btn_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-eliminar-50.png"))); // NOI18N
+        btn_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteActionPerformed(evt);
+            }
+        });
 
-        btn_salida.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\icon_salida.png")); // NOI18N
+        btn_salida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon_salida.png"))); // NOI18N
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-guardar-50.png"))); // NOI18N
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         label_rentcar1.setFont(new java.awt.Font("Californian FB", 0, 30)); // NOI18N
         label_rentcar1.setText("Rent a Car U&S");
@@ -149,6 +324,30 @@ public class frm_asociado extends javax.swing.JFrame {
         label_listadeasociados.setText("Registro de asociados");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-embotellamiento-50 (1).png"))); // NOI18N
+
+        table_asociado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        table_asociado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_asociadoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(table_asociado);
+
+        lbl_buscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lbl_buscar.setText("buscar:");
+
+        txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscarKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -196,15 +395,20 @@ public class frm_asociado extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(label_listadeasociados)
-                                        .addGap(50, 50, 50))))
+                                    .addComponent(label_listadeasociados)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(label_rentcar1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(btn_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(497, Short.MAX_VALUE))
+                                .addComponent(label_rentcar1)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_buscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,9 +419,7 @@ public class frm_asociado extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_salida)
-                            .addComponent(label_rentcar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(label_rentcar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -249,6 +451,20 @@ public class frm_asociado extends javax.swing.JFrame {
                     .addComponent(btn_delete, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_guardar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btn_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 870, 410));
@@ -297,6 +513,107 @@ public class frm_asociado extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btn_printActionPerformed
 
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+         // con este boton cada vez que se llena el formulario  se llena en la base de datos 
+      String cod = txt_cod_asociado.getText();
+        String rnc = txt_rnc_asociado.getText();
+        String mone = txt_moneda_asociado.getText();
+        String cod_per = txt_cod_persona.getText();
+        String estado = String.valueOf(Cbox_estado_asociado.getSelectedIndex());
+
+                
+        if(rnc.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Agrega el rnc");
+        }
+        
+        else if(cod_per.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Agrega una el codigo de la persona");
+        }      
+        else if(RevisarAsociado(cod))
+        {
+            JOptionPane.showMessageDialog(null, "Este asociado ya existe");
+        }
+          else if(mone.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Agrega la moneda");
+        }      
+        else{
+        PreparedStatement ps;
+        String query = "INSERT INTO `asociado`(`cod_asoc`,`rnc_asoc`, `moneda_asoc`, `estado_asoc`,`cod_per`) VALUES (?,?,?,?,?)";
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+            
+              ps.setString(1, cod);
+            ps.setString(2, rnc);
+            ps.setString(3, mone);
+            ps.setString(4, estado);
+            ps.setString(5, cod_per);
+            if(ps.executeUpdate() > 0)
+            {
+                JOptionPane.showMessageDialog(null, "Nuevo asociado Agregado");
+               
+//                llamando a las funciones de limpiar los datos y mostrar datos
+                limpiar();
+                mostrardatos(""); 
+//                ----------------------------fin----------------------------------------
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_asociado.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "error "+ex);
+            }
+        }
+//       -------------------------------fin---------------------------------- 
+    }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
+       // con este boton se elimina un registro de la tabla
+        String cod = (String) asociado.getValueAt(table_asociado.getSelectedRow(),0) ;
+        PreparedStatement ps;
+        String query = "delete from asociado where Cod_asoc=?";
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+              ps.setString(1, cod);
+            
+            if(ps.executeUpdate() > 0)
+            {
+                JOptionPane.showMessageDialog(null, "Registro eliminado");
+               
+//                llamando a las funciones de limpiar los datos y mostrar datos
+                limpiar();
+                mostrardatos(""); 
+//                ----------------------------fin----------------------------------------
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_asociado.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "error "+ex);
+            }
+        
+        
+
+//      -------------------------------fin--------------------------------------                                        
+    }//GEN-LAST:event_btn_deleteActionPerformed
+
+    private void txt_buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarKeyReleased
+                //  llamando a la funcion filtrar datos por el rnc 
+        filtrardatos(txt_buscar.getText());
+//        ------------fin----------------------
+    }//GEN-LAST:event_txt_buscarKeyReleased
+
+    private void table_asociadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_asociadoMouseClicked
+       // cuando se seleccione una fila en la tabla se pone en el formulario
+        int filaseleccionada=table_asociado.rowAtPoint(evt.getPoint()); 
+       
+          txt_rnc_asociado.setText(table_asociado.getValueAt(filaseleccionada,1).toString());
+          txt_moneda_asociado.setText(table_asociado.getValueAt(filaseleccionada,2).toString());
+           Cbox_estado_asociado.setSelectedItem(table_asociado.getValueAt(filaseleccionada,3)); 
+           txt_cod_persona.setText(table_asociado.getValueAt(filaseleccionada,4).toString());    
+//       ----------------------------fin-----------------------------------------------
+    }//GEN-LAST:event_table_asociadoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -341,6 +658,7 @@ public class frm_asociado extends javax.swing.JFrame {
     private javax.swing.JButton btn_salida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel label_cod_asociado;
@@ -353,6 +671,9 @@ public class frm_asociado extends javax.swing.JFrame {
     private javax.swing.JLabel label_rentcar;
     private javax.swing.JLabel label_rentcar1;
     private javax.swing.JLabel label_rnc_asociado;
+    private javax.swing.JLabel lbl_buscar;
+    private javax.swing.JTable table_asociado;
+    private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_cod_asociado;
     private javax.swing.JTextField txt_cod_persona;
     private javax.swing.JTextField txt_moneda_asociado;

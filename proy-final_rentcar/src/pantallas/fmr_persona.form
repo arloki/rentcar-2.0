@@ -88,7 +88,7 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="label_correo1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txt_correo1" min="-2" pref="132" max="-2" attributes="0"/>
+                                              <Component id="txt_celular" min="-2" pref="132" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
@@ -111,11 +111,11 @@
                                               <Component id="txt_cod_sector" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Component id="label_fecha_Nac" min="-2" pref="130" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="txt_fechanac" max="32767" attributes="0"/>
+                                                      <Component id="txt_fechanac" min="-2" pref="66" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="label_correo" min="-2" max="-2" attributes="0"/>
@@ -183,7 +183,7 @@
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -242,7 +242,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txt_tel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="label_telefono" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_correo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_celular" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="label_correo1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -464,9 +464,9 @@
             <Property name="text" type="java.lang.String" value=" Celular:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_correo1">
+        <Component class="javax.swing.JTextField" name="txt_celular">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_correo1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_celularActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="label_direccion1">
@@ -544,6 +544,9 @@
               <Image iconType="3" name="/imagenes/icons8-guardar-50.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_guardarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="label_rentcar">
           <Properties>

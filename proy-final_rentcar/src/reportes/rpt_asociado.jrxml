@@ -73,8 +73,8 @@
 				<text><![CDATA[Reporte asociado]]></text>
 			</staticText>
 			<image>
-				<reportElement x="73" y="-21" width="179" height="121" uuid="df4d294e-22c1-4a31-bf26-2253ad4300a9"/>
-				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
+				<reportElement x="97" y="-21" width="162" height="125" uuid="f01d1d03-17e1-46ec-ae17-d52cceb38f20"/>
+				<imageExpression><![CDATA["C:\\Users\\arlette\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>

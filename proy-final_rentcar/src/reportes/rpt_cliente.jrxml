@@ -79,8 +79,8 @@
 				<text><![CDATA[Rent a Car U&S]]></text>
 			</staticText>
 			<image>
-				<reportElement x="65" y="-17" width="179" height="121" uuid="80310534-e1a7-4912-afbb-1eaf480b29f4"/>
-				<imageExpression><![CDATA["C:\\Users\\user\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
+				<reportElement x="85" y="0" width="143" height="104" uuid="47de0cd8-17f2-4ff1-88e0-c20fe31eebe0"/>
+				<imageExpression><![CDATA["C:\\Users\\arlette\\Documents\\NetBeansProjects\\rentacar\\proy-final_rentcar\\src\\imagenes\\logo rentcar azul.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>

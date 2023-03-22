@@ -5,6 +5,9 @@
  */
 package pantallas;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -27,6 +30,50 @@ public class fmr_persona extends javax.swing.JFrame {
     public fmr_persona() {
         initComponents();
     }
+      public boolean RevisarPersona(String Persona){
+        //Funcion para Revisar si un registro existe dentro de la BD
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        String query = "SELECT * FROM `persona` WHERE `cedula_per` =?";
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+            ps.setString(1, Persona);
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                checkUser = true;
+            }
+        }   catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error" + ex);
+        }
+        return checkUser;
+        }
+//   -----------------------------fin---------------------------------------
+      
+      public void limpiar(){
+        //limpia el formulario despues de llenarlo
+        try{
+            txt_codpersona.setText("");
+            txt_cedula.setText("");
+          txt_tel.setText("");
+        txt_nombre.setText("");
+        txt_apellido.setText("");
+         txt_celular.setText("");
+        txt_correo.setText("");
+        txt_direccion.setText("");
+        txt_fechanac.setText("");
+        txt_pasaporte.setText("");
+        txt_correo.setText("");
+        combobox_sexo.setSelectedIndex(0); 
+ 
+        } catch (Exception ex) {  
+                JOptionPane.showMessageDialog(null, "error "+ex);
+       
+    } 
+//        -----------------------fin------------------------------
+    } 
 
     
     
@@ -66,7 +113,7 @@ public class fmr_persona extends javax.swing.JFrame {
         btn_salida = new javax.swing.JButton();
         btn_print = new javax.swing.JButton();
         label_correo1 = new javax.swing.JLabel();
-        txt_correo1 = new javax.swing.JTextField();
+        txt_celular = new javax.swing.JTextField();
         label_direccion1 = new javax.swing.JLabel();
         txt_cod_sector = new javax.swing.JTextField();
         label_direccion2 = new javax.swing.JLabel();
@@ -198,9 +245,9 @@ public class fmr_persona extends javax.swing.JFrame {
         label_correo1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         label_correo1.setText(" Celular:");
 
-        txt_correo1.addActionListener(new java.awt.event.ActionListener() {
+        txt_celular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_correo1ActionPerformed(evt);
+                txt_celularActionPerformed(evt);
             }
         });
 
@@ -250,6 +297,11 @@ public class fmr_persona extends javax.swing.JFrame {
         });
 
         btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-guardar-50.png"))); // NOI18N
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         label_rentcar.setFont(new java.awt.Font("Californian FB", 0, 30)); // NOI18N
         label_rentcar.setText("Rent a Car U&S");
@@ -314,7 +366,7 @@ public class fmr_persona extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(label_correo1)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txt_correo1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(83, 83, 83)
                                             .addComponent(txt_Cod_municipio, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,11 +385,11 @@ public class fmr_persona extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(txt_cod_sector))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                                     .addComponent(label_fecha_Nac, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txt_fechanac))
+                                                    .addComponent(txt_fechanac, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                                     .addComponent(label_correo)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -385,7 +437,7 @@ public class fmr_persona extends javax.swing.JFrame {
                                 .addComponent(btn_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,7 +482,7 @@ public class fmr_persona extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_tel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label_telefono)
-                            .addComponent(txt_correo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label_correo1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -522,9 +574,9 @@ public class fmr_persona extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_direccionActionPerformed
 
-    private void txt_correo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correo1ActionPerformed
+    private void txt_celularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_celularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_correo1ActionPerformed
+    }//GEN-LAST:event_txt_celularActionPerformed
 
     private void txt_cod_sectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cod_sectorActionPerformed
         // TODO add your handling code here:
@@ -564,6 +616,10 @@ public class fmr_persona extends javax.swing.JFrame {
     
         
     }//GEN-LAST:event_btn_printActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -636,10 +692,10 @@ public class fmr_persona extends javax.swing.JFrame {
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_celular;
     private javax.swing.JTextField txt_cod_sector;
     private javax.swing.JTextField txt_codpersona;
     private javax.swing.JTextField txt_correo;
-    private javax.swing.JTextField txt_correo1;
     private javax.swing.JTextField txt_direccion;
     private javax.swing.JTextField txt_direccion3;
     private javax.swing.JTextField txt_direccion4;
